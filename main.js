@@ -2,7 +2,6 @@ import './style.css';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
-
 // Setup
 
 const scene = new THREE.Scene();
@@ -19,8 +18,6 @@ camera.position.setZ(30);
 camera.position.setX(-3);
 
 renderer.render(scene, camera);
-//load model
-
 
 // Torus
 
@@ -32,10 +29,11 @@ scene.add(torus);
 
 // Lights
 
-
+const pointLight = new THREE.PointLight(0xffffff);
+pointLight.position.set(5, 5, 5);
 
 const ambientLight = new THREE.AmbientLight(0xffffff);
-scene.add( ambientLight);
+scene.add(pointLight, ambientLight);
 
 // Helpers
 
@@ -62,12 +60,12 @@ Array(200).fill().forEach(addStar);
 
 // Background
 
-const spaceTexture = new THREE.TextureLoader().load('space.jpg',renderer.render(scene, camera));
+const spaceTexture = new THREE.TextureLoader().load('space.jpg');
 scene.background = spaceTexture;
 
 // Avatar
 
-const jeffTexture = new THREE.TextureLoader().load('jeff.png',renderer.render(scene, camera) );
+const jeffTexture = new THREE.TextureLoader().load('jeff.png');
 
 const jeff = new THREE.Mesh(new THREE.BoxGeometry(3, 3, 3), new THREE.MeshBasicMaterial({ map: jeffTexture }));
 
@@ -128,5 +126,5 @@ function animate() {
 
   renderer.render(scene, camera);
 }
-
+console.log(spaceTexture)
 animate();
