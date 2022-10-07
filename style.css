@@ -25,6 +25,7 @@ main {
   width: 100%;
   margin: 0px auto;
   padding: 120px 0px;
+  height: 1000px;
   
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -35,7 +36,10 @@ h1, h2, h3, blockquote {
   font-weight: 700;
   font-style: normal;
 }
+img{
+  width: 100%;
 
+}
 canvas {
   position: fixed;
   top: 0;
