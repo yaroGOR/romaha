@@ -1,7 +1,6 @@
 import './style.css';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import {GLTFLoader} from 'THREE/examples/jsm/loaders/GLTFLoader.js'
 
 
 // Setup
@@ -20,8 +19,7 @@ camera.position.setZ(30);
 camera.position.setX(-3);
 
 renderer.render(scene, camera);
-//load model
-const loader = new GLTFLoader();
+
 
 
 // Torus
@@ -40,19 +38,7 @@ const ambientLight = new THREE.AmbientLight(0xffffff);
 scene.add( ambientLight);
 
 
-loader.load( './romaha3d.glb', function ( drom ) {
-const romaha=drom.scene.children[0]
-romaha.scale.set(1,1,1);
 
-	scene.add( romaha );
-  romaha.position.set(-10,3,20)
-
-}, undefined, function ( error ) {
-
-	console.error( error );
-
-} );
-// Helpers
 
 // const lightHelper = new THREE.PointLightHelper(pointLight)
 // const gridHelper = new THREE.GridHelper(200, 50);
