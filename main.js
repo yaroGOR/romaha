@@ -1,7 +1,6 @@
 import './style.css';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import {GLTFLoader} from 'THREE/examples/jsm/loaders/GLTFLoader.js'
 
 const manager = new THREE.LoadingManager();
 
