@@ -20,7 +20,6 @@ camera.position.setX(-3);
 
 renderer.render(scene, camera);
 //load model
-const loader = new GLTFLoader();
 
 
 // Torus
