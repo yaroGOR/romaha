@@ -21,6 +21,7 @@ renderer.render(scene, camera);
 
 // Torus
 
+
 const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
 const material = new THREE.MeshStandardMaterial({ color: 0xff6347 });
 const torus = new THREE.Mesh(geometry, material);
@@ -60,8 +61,10 @@ Array(200).fill().forEach(addStar);
 
 // Background
 
-const spaceTexture = new THREE.TextureLoader().load('space.jpg');
-scene.background = spaceTexture;
+const spaceTexture = new THREE.TextureLoader().load('space.jpg',(texture)=>{
+  scene.background = texture;
+
+});
 
 // Avatar
 
@@ -112,9 +115,10 @@ document.body.onscroll = moveCamera;
 moveCamera();
 
 // Animation Loop
-
-function animate() {
+function animate(obj1, obj2) {
   requestAnimationFrame(animate);
+scene.add(obj1)
+scene.add(obj2)
 
   torus.rotation.x += 0.01;
   torus.rotation.y += 0.005;
@@ -126,5 +130,5 @@ function animate() {
 
   renderer.render(scene, camera);
 }
-console.log(spaceTexture)
-animate();
+
+animate(moon,jeff);
